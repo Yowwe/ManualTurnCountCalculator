@@ -112,25 +112,25 @@ document.addEventListener('DOMContentLoaded', function () {
                 let totalAngleDisplaced;
 
                 switch (`${startQuadrant}-${endQuadrant}`) {
-                    case '1-1': totalAngleDisplaced = 90 - x + 270 + y; break;
-                    case '1-2': totalAngleDisplaced = 90 - x + y; break;
-                    case '1-3': totalAngleDisplaced = 90 - x + 90 + y; break;
-                    case '1-4': totalAngleDisplaced = 90 - x + 180 + y; break;
+                    case '1-1': totalAngleDisplaced = x + 270 + y; break;
+                    case '1-2': totalAngleDisplaced = x + y; break;
+                    case '1-3': totalAngleDisplaced = x + 90 + y; break;
+                    case '1-4': totalAngleDisplaced = x + 180 + y; break;
 
-                    case '2-1': totalAngleDisplaced = 90 - x + 180 + y; break;
-                    case '2-2': totalAngleDisplaced = 90 - x + 270 + y; break;
-                    case '2-3': totalAngleDisplaced = 90 - x + y; break;
-                    case '2-4': totalAngleDisplaced = 90 - x + 90 + y; break;
+                    case '2-1': totalAngleDisplaced = x + 180 + y; break;
+                    case '2-2': totalAngleDisplaced = x + 270 + y; break;
+                    case '2-3': totalAngleDisplaced = x + y; break;
+                    case '2-4': totalAngleDisplaced = x + 90 + y; break;
 
-                    case '3-1': totalAngleDisplaced = 90 - x + 90 + y; break;
-                    case '3-2': totalAngleDisplaced = 90 - x + 180 + y; break;
-                    case '3-3': totalAngleDisplaced = 90 - x + 270 + y; break;
-                    case '3-4': totalAngleDisplaced = 90 - x + y; break;
+                    case '3-1': totalAngleDisplaced = x + 90 + y; break;
+                    case '3-2': totalAngleDisplaced = x + 180 + y; break;
+                    case '3-3': totalAngleDisplaced = x + 270 + y; break;
+                    case '3-4': totalAngleDisplaced = x + y; break;
 
-                    case '4-1': totalAngleDisplaced = 90 - x + y; break;
-                    case '4-2': totalAngleDisplaced = 90 - x + 90 + y; break;
-                    case '4-3': totalAngleDisplaced = 90 - x + 180 + y; break;
-                    case '4-4': totalAngleDisplaced = 90 - x + 270 + y; break;
+                    case '4-1': totalAngleDisplaced = x + y; break;
+                    case '4-2': totalAngleDisplaced = x + 90 + y; break;
+                    case '4-3': totalAngleDisplaced = x + 180 + y; break;
+                    case '4-4': totalAngleDisplaced = x + 270 + y; break;
 
                     // Add a default case to handle unexpected quadrant combinations
                     default:
