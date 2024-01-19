@@ -40,18 +40,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 ctx.closePath();
                 ctx.fill();
             }
-
-          function calculateWithinArc() {
-                const measuredAngle = parseFloat(document.getElementById("angleMeasured").value);
-
-                if (isNaN(measuredAngle) || measuredAngle < 0 || measuredAngle > 90) {
-                    alert("Error: Please enter a valid angle between 0 and 90 degrees.");
-                    return;
-                }
-
-                const withinArc = 90 - measuredAngle;
-                document.getElementById("withinArc").innerText = withinArc.toFixed(2);
-            }
               
           function calculateTurncount() {
                 const startAngle = parseFloat(document.getElementById("startAngle").value);
@@ -90,17 +78,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 let xPrime, yPrime;
 
                 switch (startQuadrant) {
-                    case 1: xPrime = 90 - x; break;
+                    case 1: xPrime = x; break;
                     case 2: xPrime = 180 - x; break;
-                    case 3: xPrime = 270 - x; break;
+                    case 3: xPrime = 180 + x; break;
                     case 4: xPrime = 360 - x; break;
                 }
 
                 switch (endQuadrant) {
                     case 1: yPrime = y; break;
-                    case 2: yPrime = 90 + y; break;
+                    case 2: yPrime = 180 - y; break;
                     case 3: yPrime = 180 + y; break;
-                    case 4: yPrime = 270 + y; break;
+                    case 4: yPrime = 360 - y; break;
                 }
 
                 const startAngleIndicator = document.getElementById("startAngleIndicator");
@@ -112,25 +100,25 @@ document.addEventListener('DOMContentLoaded', function () {
                 let totalAngleDisplaced;
 
                 switch (`${startQuadrant}-${endQuadrant}`) {
-                    case '1-1': totalAngleDisplaced = x + 270 + y; break;
-                    case '1-2': totalAngleDisplaced = x + y; break;
-                    case '1-3': totalAngleDisplaced = x + 90 + y; break;
-                    case '1-4': totalAngleDisplaced = x + 180 + y; break;
+                    case '1-1': totalAngleDisplaced = -x + y + 360; break;
+                    case '1-2': totalAngleDisplaced = -x - y + 180; break;
+                    case '1-3': totalAngleDisplaced = -x + y + 180; break;
+                    case '1-4': totalAngleDisplaced = -x + y + 360; break;
 
-                    case '2-1': totalAngleDisplaced = x + 180 + y; break;
-                    case '2-2': totalAngleDisplaced = x + 270 + y; break;
+                    case '2-1': totalAngleDisplaced = x + y + 180; break;
+                    case '2-2': totalAngleDisplaced = x - y + 360; break;
                     case '2-3': totalAngleDisplaced = x + y; break;
-                    case '2-4': totalAngleDisplaced = x + 90 + y; break;
+                    case '2-4': totalAngleDisplaced = x - y + 180; break;
 
-                    case '3-1': totalAngleDisplaced = x + 90 + y; break;
-                    case '3-2': totalAngleDisplaced = x + 180 + y; break;
-                    case '3-3': totalAngleDisplaced = x + 270 + y; break;
-                    case '3-4': totalAngleDisplaced = x + y; break;
+                    case '3-1': totalAngleDisplaced = -x + y + 180; break;
+                    case '3-2': totalAngleDisplaced = -x - y - 360; break;
+                    case '3-3': totalAngleDisplaced = -x + y + 360; break;
+                    case '3-4': totalAngleDisplaced = -x - y + 180; break;
 
                     case '4-1': totalAngleDisplaced = x + y; break;
-                    case '4-2': totalAngleDisplaced = x + 90 + y; break;
-                    case '4-3': totalAngleDisplaced = x + 180 + y; break;
-                    case '4-4': totalAngleDisplaced = x + 270 + y; break;
+                    case '4-2': totalAngleDisplaced = x - y + 90; break;
+                    case '4-3': totalAngleDisplaced = x + y + 180; break;
+                    case '4-4': totalAngleDisplaced = x - y + 360; break;
 
                     // Add a default case to handle unexpected quadrant combinations
                     default:
@@ -192,8 +180,7 @@ document.addEventListener('DOMContentLoaded', function () {
               
                 document.getElementById("totalAngleDisplaced").innerText = totalAngleDisplaced;
             }
-    
-            document.getElementById('calculateWithinArcButton').addEventListener('click', calculateWithinArc);  
+            
             document.getElementById('calculateButton').addEventListener('click', calculateTurncount);
         
             drawAxes();
