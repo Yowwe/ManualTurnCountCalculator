@@ -72,8 +72,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     return; // Exit the function to prevent further calculations
                 }
 
-                if (startQuadrant === endQuadrant && startAngle + endAngle > 90) {
-                    alert("Error: Start angle + end angle should be 90 for the same quadrant.");
+                if (startQuadrant === endQuadrant && startAngle + endAngle > 100) {
+                    alert("Error: Start angle + end angle should be greater than 100 for the same quadrant.");
                     return; // Exit the function to prevent further calculations
                 }
 
