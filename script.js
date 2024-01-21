@@ -66,7 +66,24 @@ document.addEventListener('DOMContentLoaded', function () {
         alert("Error: End quadrant should be within the range of 1 to 4.");
         return;
     }
-                
+                               // Check if start quadrant is the same as end quadrant
+   if (
+  (startQuadrant === 1 || startQuadrant === 3) &&
+  endQuadrant === startQuadrant &&
+  startAngle > endAngle
+) {
+  alert("Error: End angle should not be greater than start angle for the same quadrant.");
+  return; // Exit the function to prevent further calculations
+}
+
+if (
+  (startQuadrant === 2 || startQuadrant === 4) &&
+  endQuadrant === startQuadrant &&
+  endAngle > startAngle
+) {
+  alert("Error: Start angle should not be greater than end angle for the same quadrant.");
+  return; // Exit the function to prevent further calculations
+} 
                 const x = startAngle;
                 const y = endAngle;
 
