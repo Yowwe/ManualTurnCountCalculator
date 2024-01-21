@@ -84,11 +84,6 @@ if (
   alert("Error: Start angle should not be greater than end angle for the same quadrant.");
   return; // Exit the function to prevent further calculations
 }
-                if (startQuadrant === endQuadrant && startAngle + endAngle > 100) {
-                    alert("Error: Start angle + end angle should be greater than 100 for the same quadrant.");
-                    return; // Exit the function to prevent further calculations
-                }
-
                 const x = startAngle;
                 const y = endAngle;
 
