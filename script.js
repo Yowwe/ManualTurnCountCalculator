@@ -71,7 +71,11 @@ document.addEventListener('DOMContentLoaded', function () {
   ((startQuadrant === 1 || startQuadrant === 3) && endQuadrant === startQuadrant && endAngle > startAngle) ||
   ((startQuadrant === 2 || startQuadrant === 4) && endQuadrant === startQuadrant && startAngle > endAngle)
 ) {
-  alert("Error: End angle should not be greater than start angle for the same quadrant.");
+  if (endAngle > startAngle) {
+    alert("Error: End angle should not be greater than start angle for the same quadrant.");
+  } else {
+    alert("Error: Start angle should not be greater than end angle for the same quadrant.");
+  }
   return; // Exit the function to prevent further calculations
 }
 
