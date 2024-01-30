@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     case '1-1': totalAngleDisplaced = -x + y + 360; break;
                     case '1-2': totalAngleDisplaced = -x - y + 180; break;
                     case '1-3': totalAngleDisplaced = -x + y + 180; break;
-                    case '1-4': totalAngleDisplaced = -x + y + 360; break;
+                    case '1-4': totalAngleDisplaced = -x - y + 360; break;
 
                     case '2-1': totalAngleDisplaced = x + y + 180; break;
                     case '2-2': totalAngleDisplaced = x - y + 360; break;
